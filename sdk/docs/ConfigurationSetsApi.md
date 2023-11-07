@@ -1,4 +1,4 @@
-# finbourne_configuration.ConfigurationSetsApi
+# lusid_configuration.ConfigurationSetsApi
 
 All URIs are relative to *https://fbn-ci.lusid.com/configuration*
 
@@ -32,13 +32,13 @@ Method | HTTP request | Description
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.configuration_set import ConfigurationSet
-from finbourne_configuration.models.create_configuration_item import CreateConfigurationItem
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.configuration_set import ConfigurationSet
+from lusid_configuration.models.create_configuration_item import CreateConfigurationItem
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -46,7 +46,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -76,7 +76,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared
     scope = 'scope_example' # str | The scope that identifies a configuration set
     code = 'code_example' # str | The code that identifies a configuration set
@@ -138,11 +138,11 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
+import lusid_configuration
+from lusid_configuration.rest import ApiException
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -150,7 +150,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -180,7 +180,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
 
     try:
         # [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
@@ -227,13 +227,13 @@ void (empty response body)
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.configuration_set import ConfigurationSet
-from finbourne_configuration.models.create_configuration_set import CreateConfigurationSet
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.configuration_set import ConfigurationSet
+from lusid_configuration.models.create_configuration_set import CreateConfigurationSet
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -241,7 +241,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -271,7 +271,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     create_configuration_set = {"id":{"scope":"official","code":"system-a-config"},"type":"shared","description":"All the config related to System A"} # CreateConfigurationSet | The data to create a configuration set
     user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
@@ -326,11 +326,11 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
+import lusid_configuration
+from lusid_configuration.rest import ApiException
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -338,7 +338,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -368,7 +368,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
 
     try:
         # [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
@@ -414,11 +414,11 @@ void (empty response body)
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
+import lusid_configuration
+from lusid_configuration.rest import ApiException
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -426,7 +426,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -456,7 +456,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared
     scope = 'scope_example' # str | The scope that identifies a configuration set
     code = 'code_example' # str | The code that identifies a configuration set
@@ -516,11 +516,11 @@ void (empty response body)
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
+import lusid_configuration
+from lusid_configuration.rest import ApiException
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -528,7 +528,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -558,7 +558,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared
     scope = 'scope_example' # str | The scope that identifies a configuration set
     code = 'code_example' # str | The code that identifies a configuration set
@@ -616,12 +616,12 @@ void (empty response body)
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.personal_access_token import PersonalAccessToken
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.personal_access_token import PersonalAccessToken
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -629,7 +629,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -659,7 +659,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     action = 'action_example' # str | action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)
 
     try:
@@ -712,12 +712,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.configuration_item import ConfigurationItem
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.configuration_item import ConfigurationItem
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -725,7 +725,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -755,7 +755,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared
     scope = 'scope_example' # str | The scope that identifies a configuration set
     code = 'code_example' # str | The code that identifies a configuration set
@@ -819,12 +819,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.configuration_set import ConfigurationSet
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.configuration_set import ConfigurationSet
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -832,7 +832,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -862,7 +862,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared
     scope = 'scope_example' # str | The scope that identifies a configuration set
     code = 'code_example' # str | The code that identifies a configuration set
@@ -924,12 +924,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.resource_list_of_configuration_item import ResourceListOfConfigurationItem
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.resource_list_of_configuration_item import ResourceListOfConfigurationItem
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -937,7 +937,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -967,7 +967,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     code = 'code_example' # str | The code that identifies a system configuration set
     key = 'key_example' # str | The key that identifies a system configuration item
     reveal = True # bool | Whether to reveal the secrets (optional)
@@ -1025,12 +1025,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.resource_list_of_configuration_set import ResourceListOfConfigurationSet
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.resource_list_of_configuration_set import ResourceListOfConfigurationSet
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -1038,7 +1038,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -1068,7 +1068,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     code = 'code_example' # str | The code that identifies a system configuration set
     reveal = True # bool | Whether to reveal the secrets (optional)
 
@@ -1124,12 +1124,12 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.resource_list_of_configuration_set_summary import ResourceListOfConfigurationSetSummary
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.resource_list_of_configuration_set_summary import ResourceListOfConfigurationSetSummary
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -1137,7 +1137,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -1167,7 +1167,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared (optional)
     user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
@@ -1222,13 +1222,13 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.configuration_item import ConfigurationItem
-from finbourne_configuration.models.update_configuration_item import UpdateConfigurationItem
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.configuration_item import ConfigurationItem
+from lusid_configuration.models.update_configuration_item import UpdateConfigurationItem
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -1236,7 +1236,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -1266,7 +1266,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared
     scope = 'scope_example' # str | The scope that identifies a configuration set
     code = 'code_example' # str | The code that identifies a configuration set
@@ -1330,13 +1330,13 @@ Name | Type | Description  | Notes
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.configuration_set import ConfigurationSet
-from finbourne_configuration.models.update_configuration_set import UpdateConfigurationSet
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.configuration_set import ConfigurationSet
+from lusid_configuration.models.update_configuration_set import UpdateConfigurationSet
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -1344,7 +1344,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -1374,7 +1374,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ConfigurationSetsApi)
+    api_instance = api_client_factory.build(lusid_configuration.ConfigurationSetsApi)
     type = 'type_example' # str | Whether the configuration set is Personal or Shared
     scope = 'scope_example' # str | The scope that identifies a configuration set
     code = 'code_example' # str | The code that identifies a configuration set

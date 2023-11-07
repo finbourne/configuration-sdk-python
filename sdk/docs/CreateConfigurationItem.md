@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_configuration.models.create_configuration_item import CreateConfigurationItem
+from lusid_configuration.models.create_configuration_item import CreateConfigurationItem
 
 # TODO update the JSON string below
 json = "{}"

@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_configuration.models.identifier_part_schema import IdentifierPartSchema
+from lusid_configuration.models.identifier_part_schema import IdentifierPartSchema
 
 # TODO update the JSON string below
 json = "{}"

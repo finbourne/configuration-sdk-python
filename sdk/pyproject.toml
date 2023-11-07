@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "finbourne-configuration-sdk"
+name = "lusid-configuration-sdk"
 version = "2.0.1"
 description = "FINBOURNE ConfigurationService API"
 authors = ["FINBOURNE Technology <info@finbourne.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/finbourne/configuration-sdk-python"
-keywords = ["OpenAPI", "OpenAPI-Generator", "FINBOURNE ConfigurationService API", "finbourne-configuration-sdk"]
+keywords = ["OpenAPI", "OpenAPI-Generator", "FINBOURNE ConfigurationService API", "lusid-configuration-sdk"]
 packages = [
-    {include = "finbourne_configuration"}
+    {include = "lusid_configuration"}
 ]
-include = ["finbourne_configuration/**/*"]
+include = ["lusid_configuration/**/*"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

@@ -1,4 +1,4 @@
-# finbourne_configuration.ApplicationMetadataApi
+# lusid_configuration.ApplicationMetadataApi
 
 All URIs are relative to *https://fbn-ci.lusid.com/configuration*
 
@@ -21,12 +21,12 @@ Get the comprehensive set of resources that are available for access control
 from __future__ import print_function
 import time
 import os
-import finbourne_configuration
-from finbourne_configuration.rest import ApiException
-from finbourne_configuration.models.resource_list_of_access_controlled_resource import ResourceListOfAccessControlledResource
+import lusid_configuration
+from lusid_configuration.rest import ApiException
+from lusid_configuration.models.resource_list_of_access_controlled_resource import ResourceListOfAccessControlledResource
 from pprint import pprint
 
-from finbourne_configuration import (
+from lusid_configuration import (
 	  ApiClientFactory,
 	  ApplicationMetadataApi,
 	  EnvironmentVariablesConfigurationLoader,
@@ -34,7 +34,7 @@ from finbourne_configuration import (
 	  ArgsConfigurationLoader
 )
 
-# Use the finbourne_configuration ApiClientFactory to build Api instances with a configured api client
+# Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
 # By default this will read config from environment variables
 # Then from a secrets.json file found in the current working directory
 api_client_factory = ApiClientFactory()
@@ -64,7 +64,7 @@ api_client_factory = ApiClientFactory(config_loaders=config_loaders)
 # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
 async with api_client_factory:
     # Create an instance of the API class
-    api_instance = api_client_factory.build(finbourne_configuration.ApplicationMetadataApi)
+    api_instance = api_client_factory.build(lusid_configuration.ApplicationMetadataApi)
 
     try:
         # [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control

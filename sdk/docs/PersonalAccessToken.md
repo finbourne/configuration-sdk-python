@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_configuration.models.personal_access_token import PersonalAccessToken
+from lusid_configuration.models.personal_access_token import PersonalAccessToken
 
 # TODO update the JSON string below
 json = "{}"

@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_configuration.models.configuration_item import ConfigurationItem
+from lusid_configuration.models.configuration_item import ConfigurationItem
 
 # TODO update the JSON string below
 json = "{}"

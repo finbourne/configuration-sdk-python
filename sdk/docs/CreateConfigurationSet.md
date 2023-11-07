@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_configuration.models.create_configuration_set import CreateConfigurationSet
+from lusid_configuration.models.create_configuration_set import CreateConfigurationSet
 
 # TODO update the JSON string below
 json = "{}"

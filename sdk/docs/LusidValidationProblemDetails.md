@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_configuration.models.lusid_validation_problem_details import LusidValidationProblemDetails
+from lusid_configuration.models.lusid_validation_problem_details import LusidValidationProblemDetails
 
 # TODO update the JSON string below
 json = "{}"

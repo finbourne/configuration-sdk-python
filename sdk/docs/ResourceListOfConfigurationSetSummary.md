@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from finbourne_configuration.models.resource_list_of_configuration_set_summary import ResourceListOfConfigurationSetSummary
+from lusid_configuration.models.resource_list_of_configuration_set_summary import ResourceListOfConfigurationSetSummary
 
 # TODO update the JSON string below
 json = "{}"
