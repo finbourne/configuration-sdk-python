@@ -31,19 +31,19 @@ Method | HTTP request | Description
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.configuration_set import ConfigurationSet
 from lusid_configuration.models.create_configuration_item import CreateConfigurationItem
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -137,17 +137,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -226,19 +226,19 @@ void (empty response body)
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.configuration_set import ConfigurationSet
 from lusid_configuration.models.create_configuration_set import CreateConfigurationSet
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -325,17 +325,17 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -413,17 +413,17 @@ void (empty response body)
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -515,17 +515,17 @@ void (empty response body)
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -615,18 +615,18 @@ void (empty response body)
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.personal_access_token import PersonalAccessToken
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -711,18 +711,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.configuration_item import ConfigurationItem
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -818,18 +818,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.configuration_set import ConfigurationSet
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -923,18 +923,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.resource_list_of_configuration_item import ResourceListOfConfigurationItem
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -1024,18 +1024,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.resource_list_of_configuration_set import ResourceListOfConfigurationSet
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -1123,18 +1123,18 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.resource_list_of_configuration_set_summary import ResourceListOfConfigurationSetSummary
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -1221,19 +1221,19 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.configuration_item import ConfigurationItem
 from lusid_configuration.models.update_configuration_item import UpdateConfigurationItem
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
@@ -1329,19 +1329,19 @@ Name | Type | Description  | Notes
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.configuration_set import ConfigurationSet
 from lusid_configuration.models.update_configuration_set import UpdateConfigurationSet
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ConfigurationSetsApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client

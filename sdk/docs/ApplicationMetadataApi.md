@@ -20,18 +20,18 @@ Get the comprehensive set of resources that are available for access control
 ```python
 from __future__ import print_function
 import time
-import os
 import lusid_configuration
 from lusid_configuration.rest import ApiException
 from lusid_configuration.models.resource_list_of_access_controlled_resource import ResourceListOfAccessControlledResource
 from pprint import pprint
 
+import os
 from lusid_configuration import (
-	  ApiClientFactory,
-	  ApplicationMetadataApi,
-	  EnvironmentVariablesConfigurationLoader,
-	  SecretsFileConfigurationLoader,
-	  ArgsConfigurationLoader
+    ApiClientFactory,
+    ApplicationMetadataApi,
+    EnvironmentVariablesConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    ArgsConfigurationLoader
 )
 
 # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
