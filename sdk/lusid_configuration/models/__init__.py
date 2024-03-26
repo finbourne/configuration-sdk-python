@@ -36,3 +36,29 @@ from lusid_configuration.models.resource_list_of_configuration_set import Resour
 from lusid_configuration.models.resource_list_of_configuration_set_summary import ResourceListOfConfigurationSetSummary
 from lusid_configuration.models.update_configuration_item import UpdateConfigurationItem
 from lusid_configuration.models.update_configuration_set import UpdateConfigurationSet
+
+
+__all__ = [
+    "AccessControlledAction",
+    "AccessControlledResource",
+    "ActionId",
+    "ConfigurationItem",
+    "ConfigurationItemSummary",
+    "ConfigurationSet",
+    "ConfigurationSetSummary",
+    "CreateConfigurationItem",
+    "CreateConfigurationSet",
+    "IdSelectorDefinition",
+    "IdentifierPartSchema",
+    "Link",
+    "LusidProblemDetails",
+    "LusidValidationProblemDetails",
+    "PersonalAccessToken",
+    "ResourceId",
+    "ResourceListOfAccessControlledResource",
+    "ResourceListOfConfigurationItem",
+    "ResourceListOfConfigurationSet",
+    "ResourceListOfConfigurationSetSummary",
+    "UpdateConfigurationItem",
+    "UpdateConfigurationSet"
+]

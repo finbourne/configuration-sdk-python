@@ -53,4 +53,54 @@ from lusid_configuration.models.update_configuration_item import UpdateConfigura
 from lusid_configuration.models.update_configuration_set import UpdateConfigurationSet
 
 # import extensions into sdk package
-from lusid_configuration.extensions import *
+from lusid_configuration.extensions import (
+    SyncApiClientFactory,
+    ApiClientFactory,
+    ConfigurationLoader,
+    SecretsFileConfigurationLoader,
+    EnvironmentVariablesConfigurationLoader,
+    ArgsConfigurationLoader,
+    SyncApiClient
+)
+
+
+__all__ = [
+    "ApplicationMetadataApi",
+    "ConfigurationSetsApi",
+    "AccessControlledAction",
+    "AccessControlledResource",
+    "ActionId",
+    "ConfigurationItem",
+    "ConfigurationItemSummary",
+    "ConfigurationSet",
+    "ConfigurationSetSummary",
+    "CreateConfigurationItem",
+    "CreateConfigurationSet",
+    "IdSelectorDefinition",
+    "IdentifierPartSchema",
+    "Link",
+    "LusidProblemDetails",
+    "LusidValidationProblemDetails",
+    "PersonalAccessToken",
+    "ResourceId",
+    "ResourceListOfAccessControlledResource",
+    "ResourceListOfConfigurationItem",
+    "ResourceListOfConfigurationSet",
+    "ResourceListOfConfigurationSetSummary",
+    "UpdateConfigurationItem",
+    "UpdateConfigurationSet",
+    "ApiClient",
+    "Configuration",
+    "OpenApiException",
+    "ApiTypeError",
+    "ApiValueError",
+    "ApiKeyError",
+    "ApiException",
+    "SyncApiClientFactory", 
+    "ApiClientFactory",
+    "ConfigurationLoader",
+    "SecretsFileConfigurationLoader",
+    "EnvironmentVariablesConfigurationLoader",
+    "ArgsConfigurationLoader",
+    "SyncApiClient"
+]
