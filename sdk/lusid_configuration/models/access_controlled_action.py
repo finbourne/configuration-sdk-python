@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, conlist, constr
+from pydantic.v1 import BaseModel, Field, conlist, constr
 from lusid_configuration.models.action_id import ActionId
 from lusid_configuration.models.id_selector_definition import IdSelectorDefinition
 from lusid_configuration.models.link import Link

@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic import BaseModel, Field, StrictStr, conlist, constr
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist, constr
 from lusid_configuration.models.configuration_item_summary import ConfigurationItemSummary
 from lusid_configuration.models.link import Link
 from lusid_configuration.models.resource_id import ResourceId
