@@ -59,6 +59,7 @@ from lusid_configuration.extensions import (
     ConfigurationLoader,
     SecretsFileConfigurationLoader,
     EnvironmentVariablesConfigurationLoader,
+    FileTokenConfigurationLoader,
     ArgsConfigurationLoader,
     SyncApiClient
 )
@@ -101,6 +102,8 @@ __all__ = [
     "ConfigurationLoader",
     "SecretsFileConfigurationLoader",
     "EnvironmentVariablesConfigurationLoader",
+    "FileTokenConfigurationLoader",
     "ArgsConfigurationLoader",
     "SyncApiClient"
+    
 ]

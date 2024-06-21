@@ -3,6 +3,7 @@ from lusid_configuration.extensions.configuration_loaders import (
     ConfigurationLoader,
     SecretsFileConfigurationLoader,
     EnvironmentVariablesConfigurationLoader,
+    FileTokenConfigurationLoader,
     ArgsConfigurationLoader,
 )
 from lusid_configuration.extensions.api_client import SyncApiClient
@@ -13,6 +14,7 @@ __all__ = [
     "ConfigurationLoader",
     "SecretsFileConfigurationLoader",
     "EnvironmentVariablesConfigurationLoader",
+    "FileTokenConfigurationLoader"
     "ArgsConfigurationLoader",
     "SyncApiClient"
 ]
