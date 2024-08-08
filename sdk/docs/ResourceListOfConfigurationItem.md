@@ -27,6 +27,6 @@ resource_list_of_configuration_item_dict = resource_list_of_configuration_item_i
 # create an instance of ResourceListOfConfigurationItem from a dict
 resource_list_of_configuration_item_form_dict = resource_list_of_configuration_item.from_dict(resource_list_of_configuration_item_dict)
 ```
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
 

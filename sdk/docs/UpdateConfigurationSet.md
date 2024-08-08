@@ -24,6 +24,6 @@ update_configuration_set_dict = update_configuration_set_instance.to_dict()
 # create an instance of UpdateConfigurationSet from a dict
 update_configuration_set_form_dict = update_configuration_set.from_dict(update_configuration_set_dict)
 ```
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
 

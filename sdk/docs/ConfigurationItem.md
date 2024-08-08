@@ -34,6 +34,6 @@ configuration_item_dict = configuration_item_instance.to_dict()
 # create an instance of ConfigurationItem from a dict
 configuration_item_form_dict = configuration_item.from_dict(configuration_item_dict)
 ```
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
 

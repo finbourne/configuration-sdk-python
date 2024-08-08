@@ -28,6 +28,6 @@ personal_access_token_dict = personal_access_token_instance.to_dict()
 # create an instance of PersonalAccessToken from a dict
 personal_access_token_form_dict = personal_access_token.from_dict(personal_access_token_dict)
 ```
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
 
