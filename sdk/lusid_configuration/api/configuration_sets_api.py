@@ -1191,7 +1191,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_configuration_item(self, type : Annotated[StrictStr, Field(..., description="Whether the configuration set is Personal or Shared")], scope : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The scope that identifies a configuration set")], code : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The code that identifies a configuration set")], key : Annotated[constr(strict=True, max_length=256, min_length=1), Field(..., description="The key that identifies a configuration item")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets. This is only available when the userId query setting has not been specified.")] = None, user_id : Annotated[Optional[constr(strict=True, max_length=64, min_length=1)], Field(description="Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ConfigurationItem, Awaitable[ConfigurationItem]]:  # noqa: E501
-        """[EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set  # noqa: E501
+        """GetConfigurationItem: Get the specific configuration item within an existing set  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1232,7 +1232,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_configuration_item_with_http_info(self, type : Annotated[StrictStr, Field(..., description="Whether the configuration set is Personal or Shared")], scope : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The scope that identifies a configuration set")], code : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The code that identifies a configuration set")], key : Annotated[constr(strict=True, max_length=256, min_length=1), Field(..., description="The key that identifies a configuration item")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets. This is only available when the userId query setting has not been specified.")] = None, user_id : Annotated[Optional[constr(strict=True, max_length=64, min_length=1)], Field(description="Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set  # noqa: E501
+        """GetConfigurationItem: Get the specific configuration item within an existing set  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1381,7 +1381,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_configuration_set(self, type : Annotated[StrictStr, Field(..., description="Whether the configuration set is Personal or Shared")], scope : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The scope that identifies a configuration set")], code : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The code that identifies a configuration set")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets. This is only available when the userId query setting has not been specified.")] = None, user_id : Annotated[Optional[constr(strict=True, max_length=64, min_length=1)], Field(description="Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ConfigurationSet, Awaitable[ConfigurationSet]]:  # noqa: E501
-        """[EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed  # noqa: E501
+        """GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1420,7 +1420,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_configuration_set_with_http_info(self, type : Annotated[StrictStr, Field(..., description="Whether the configuration set is Personal or Shared")], scope : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The scope that identifies a configuration set")], code : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The code that identifies a configuration set")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets. This is only available when the userId query setting has not been specified.")] = None, user_id : Annotated[Optional[constr(strict=True, max_length=64, min_length=1)], Field(description="Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed  # noqa: E501
+        """GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1729,7 +1729,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_system_configuration_sets(self, code : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The code that identifies a system configuration set")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfConfigurationSet, Awaitable[ResourceListOfConfigurationSet]]:  # noqa: E501
-        """[EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint  # noqa: E501
+        """GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1762,7 +1762,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_system_configuration_sets_with_http_info(self, code : Annotated[constr(strict=True, max_length=64, min_length=1), Field(..., description="The code that identifies a system configuration set")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint  # noqa: E501
+        """GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True

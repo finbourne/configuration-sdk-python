@@ -11,10 +11,10 @@ Method | HTTP request | Description
 [**delete_configuration_item**](ConfigurationSetsApi.md#delete_configuration_item) | **DELETE** /api/sets/{type}/{scope}/{code}/items/{key} | [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
 [**delete_configuration_set**](ConfigurationSetsApi.md#delete_configuration_set) | **DELETE** /api/sets/{type}/{scope}/{code} | [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
 [**generate_access_token**](ConfigurationSetsApi.md#generate_access_token) | **PUT** /api/sets/personal/me | [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
-[**get_configuration_item**](ConfigurationSetsApi.md#get_configuration_item) | **GET** /api/sets/{type}/{scope}/{code}/items/{key} | [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
-[**get_configuration_set**](ConfigurationSetsApi.md#get_configuration_set) | **GET** /api/sets/{type}/{scope}/{code} | [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+[**get_configuration_item**](ConfigurationSetsApi.md#get_configuration_item) | **GET** /api/sets/{type}/{scope}/{code}/items/{key} | GetConfigurationItem: Get the specific configuration item within an existing set
+[**get_configuration_set**](ConfigurationSetsApi.md#get_configuration_set) | **GET** /api/sets/{type}/{scope}/{code} | GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
 [**get_system_configuration_items**](ConfigurationSetsApi.md#get_system_configuration_items) | **GET** /api/sets/system/{code}/items/{key} | [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
-[**get_system_configuration_sets**](ConfigurationSetsApi.md#get_system_configuration_sets) | **GET** /api/sets/system/{code} | [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+[**get_system_configuration_sets**](ConfigurationSetsApi.md#get_system_configuration_sets) | **GET** /api/sets/system/{code} | GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
 [**list_configuration_sets**](ConfigurationSetsApi.md#list_configuration_sets) | **GET** /api/sets | [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
 [**update_configuration_item**](ConfigurationSetsApi.md#update_configuration_item) | **PUT** /api/sets/{type}/{scope}/{code}/items/{key} | [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item&#39;s value and/or description
 [**update_configuration_set**](ConfigurationSetsApi.md#update_configuration_set) | **PUT** /api/sets/{type}/{scope}/{code} | [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 # **get_configuration_item**
 > ConfigurationItem get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id)
 
-[EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
+GetConfigurationItem: Get the specific configuration item within an existing set
 
 ### Example
 
@@ -636,7 +636,7 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
-            # [EARLY ACCESS] GetConfigurationItem: Get the specific configuration item within an existing set
+            # GetConfigurationItem: Get the specific configuration item within an existing set
             api_response = await api_instance.get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id)
             pprint(api_response)
         except ApiException as e:
@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
 # **get_configuration_set**
 > ConfigurationSet get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id)
 
-[EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
 
 ### Example
 
@@ -724,7 +724,7 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
-            # [EARLY ACCESS] GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+            # GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
             api_response = await api_instance.get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id)
             pprint(api_response)
         except ApiException as e:
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 # **get_system_configuration_sets**
 > ResourceListOfConfigurationSet get_system_configuration_sets(code, reveal=reveal)
 
-[EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
 
 ### Example
 
@@ -891,7 +891,7 @@ async def main():
         reveal = True # bool | Whether to reveal the secrets (optional)
 
         try:
-            # [EARLY ACCESS] GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+            # GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
             api_response = await api_instance.get_system_configuration_sets(code, reveal=reveal)
             pprint(api_response)
         except ApiException as e:
