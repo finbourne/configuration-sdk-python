@@ -36,8 +36,9 @@ class ConfigurationItem(BaseModel):
     value_type: constr(strict=True, min_length=1) = Field(..., alias="valueType", description="The type of the configuration item's value")
     is_secret: StrictBool = Field(..., alias="isSecret", description="Defines whether or not the value is a secret.")
     ref: constr(strict=True, min_length=1) = Field(..., description="The reference to the configuration item")
+    block_reveal: StrictBool = Field(..., alias="blockReveal", description="Defines whether the value is blocked with non-internal request.")
     links: Optional[conlist(Link)] = None
-    __properties = ["createdAt", "createdBy", "lastModifiedAt", "lastModifiedBy", "description", "key", "value", "valueType", "isSecret", "ref", "links"]
+    __properties = ["createdAt", "createdBy", "lastModifiedAt", "lastModifiedBy", "description", "key", "value", "valueType", "isSecret", "ref", "blockReveal", "links"]
 
     class Config:
         """Pydantic configuration"""
@@ -103,6 +104,7 @@ class ConfigurationItem(BaseModel):
             "value_type": obj.get("valueType"),
             "is_secret": obj.get("isSecret"),
             "ref": obj.get("ref"),
+            "block_reveal": obj.get("blockReveal"),
             "links": [Link.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None
         })
         return _obj

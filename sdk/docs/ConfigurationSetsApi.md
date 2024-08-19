@@ -70,7 +70,7 @@ async def main():
         # Change the lines below to switch approach
         # create_configuration_item = CreateConfigurationItem()
         # create_configuration_item = CreateConfigurationItem.from_json("")
-        create_configuration_item = CreateConfigurationItem.from_dict({"key":"password","value":"a super secret password","valueType":"text","isSecret":false,"description":"Password for System A"}) # CreateConfigurationItem | The data to create a configuration item
+        create_configuration_item = CreateConfigurationItem.from_dict({"key":"password","value":"a super secret password","valueType":"text","isSecret":false,"description":"Password for System A","blockReveal":false}) # CreateConfigurationItem | The data to create a configuration item
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:

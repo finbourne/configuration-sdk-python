@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **value_type** | **str** | The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \&quot;5.5\&quot;)  - boolean: true/false  - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;)  - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;) | [optional] 
 **is_secret** | **bool** | Defines whether or not the value is a secret | 
 **description** | **str** | The description of the new configuration item | [optional] 
+**block_reveal** | **bool** | A property to indicate if revealing the value is blocked. | [optional] 
 
 ## Example
 

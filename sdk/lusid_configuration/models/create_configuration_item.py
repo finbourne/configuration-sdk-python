@@ -30,7 +30,8 @@ class CreateConfigurationItem(BaseModel):
     value_type: Optional[StrictStr] = Field(None, alias="valueType", description="The type (text, number, boolean, textCollection, numberCollection) of the new configuration item's value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \"5.5\")  - boolean: true/false  - textCollection: comma separated list (e.g. \"a,b,c\")  - numberCollection: comma separated list of doubles (e.g. \"1,2,3\")")
     is_secret: StrictBool = Field(..., alias="isSecret", description="Defines whether or not the value is a secret")
     description: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(None, description="The description of the new configuration item")
-    __properties = ["key", "value", "valueType", "isSecret", "description"]
+    block_reveal: Optional[StrictBool] = Field(None, alias="blockReveal", description="A property to indicate if revealing the value is blocked.")
+    __properties = ["key", "value", "valueType", "isSecret", "description", "blockReveal"]
 
     @validator('key')
     def key_validate_regular_expression(cls, value):
@@ -96,6 +97,7 @@ class CreateConfigurationItem(BaseModel):
             "value": obj.get("value"),
             "value_type": obj.get("valueType"),
             "is_secret": obj.get("isSecret"),
-            "description": obj.get("description")
+            "description": obj.get("description"),
+            "block_reveal": obj.get("blockReveal")
         })
         return _obj
