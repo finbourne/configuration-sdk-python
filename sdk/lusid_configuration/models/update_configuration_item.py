@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, constr, validator
+from pydantic.v1 import BaseModel, Field, StrictBool, constr, validator
 
 class UpdateConfigurationItem(BaseModel):
     """
@@ -27,7 +27,8 @@ class UpdateConfigurationItem(BaseModel):
     """
     value: constr(strict=True, max_length=2000000, min_length=1) = Field(..., description="The new value of the configuration item")
     description: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(None, description="The new description of the configuration item")
-    __properties = ["value", "description"]
+    block_reveal: Optional[StrictBool] = Field(None, alias="blockReveal", description="The requested new state of BlockReveal")
+    __properties = ["value", "description", "blockReveal"]
 
     @validator('value')
     def value_validate_regular_expression(cls, value):
@@ -78,6 +79,7 @@ class UpdateConfigurationItem(BaseModel):
 
         _obj = UpdateConfigurationItem.parse_obj({
             "value": obj.get("value"),
-            "description": obj.get("description")
+            "description": obj.get("description"),
+            "block_reveal": obj.get("blockReveal")
         })
         return _obj

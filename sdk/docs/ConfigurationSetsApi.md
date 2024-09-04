@@ -1057,7 +1057,7 @@ async def main():
         # Change the lines below to switch approach
         # update_configuration_item = UpdateConfigurationItem()
         # update_configuration_item = UpdateConfigurationItem.from_json("")
-        update_configuration_item = UpdateConfigurationItem.from_dict({"value":"updated password","description":"Password for system A and B"}) # UpdateConfigurationItem | The data to update a configuration item
+        update_configuration_item = UpdateConfigurationItem.from_dict({"value":"updated password","description":"Password for system A and B","blockReveal":false}) # UpdateConfigurationItem | The data to update a configuration item
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
