@@ -19,6 +19,7 @@ Get the comprehensive set of resources that are available for access control
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -45,6 +46,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -53,6 +62,9 @@ async def main():
         api_instance = api_client_factory.build(ApplicationMetadataApi)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.list_access_controlled_resources(opts=opts)
+
             # [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
             api_response = await api_instance.list_access_controlled_resources()
             pprint(api_response)

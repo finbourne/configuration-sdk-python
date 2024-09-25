@@ -30,6 +30,7 @@ Method | HTTP request | Description
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -56,6 +57,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -74,6 +83,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.add_configuration_to_set(type, scope, code, create_configuration_item, user_id=user_id, opts=opts)
+
             # [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
             api_response = await api_instance.add_configuration_to_set(type, scope, code, create_configuration_item, user_id=user_id)
             pprint(api_response)
@@ -122,6 +134,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -148,6 +161,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -156,6 +177,9 @@ async def main():
         api_instance = api_client_factory.build(ConfigurationSetsApi)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # await api_instance.check_access_token_exists(opts=opts)
+
             # [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
             await api_instance.check_access_token_exists()        except ApiException as e:
             print("Exception when calling ConfigurationSetsApi->check_access_token_exists: %s\n" % e)
@@ -194,6 +218,7 @@ void (empty response body)
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -220,6 +245,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -235,6 +268,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.create_configuration_set(create_configuration_set, user_id=user_id, opts=opts)
+
             # [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
             api_response = await api_instance.create_configuration_set(create_configuration_set, user_id=user_id)
             pprint(api_response)
@@ -279,6 +315,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -305,6 +342,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -313,6 +358,9 @@ async def main():
         api_instance = api_client_factory.build(ConfigurationSetsApi)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # await api_instance.delete_access_token(opts=opts)
+
             # [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
             await api_instance.delete_access_token()        except ApiException as e:
             print("Exception when calling ConfigurationSetsApi->delete_access_token: %s\n" % e)
@@ -350,6 +398,7 @@ void (empty response body)
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -376,6 +425,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -389,6 +446,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # await api_instance.delete_configuration_item(type, scope, code, key, user_id=user_id, opts=opts)
+
             # [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
             await api_instance.delete_configuration_item(type, scope, code, key, user_id=user_id)        except ApiException as e:
             print("Exception when calling ConfigurationSetsApi->delete_configuration_item: %s\n" % e)
@@ -435,6 +495,7 @@ void (empty response body)
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -461,6 +522,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -473,6 +542,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # await api_instance.delete_configuration_set(type, scope, code, user_id=user_id, opts=opts)
+
             # [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
             await api_instance.delete_configuration_set(type, scope, code, user_id=user_id)        except ApiException as e:
             print("Exception when calling ConfigurationSetsApi->delete_configuration_set: %s\n" % e)
@@ -518,6 +590,7 @@ void (empty response body)
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -544,6 +617,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -553,6 +634,9 @@ async def main():
         action = 'action_example' # str | action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.generate_access_token(action=action, opts=opts)
+
             # [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
             api_response = await api_instance.generate_access_token(action=action)
             pprint(api_response)
@@ -596,6 +680,7 @@ GetConfigurationItem: Get the specific configuration item within an existing set
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -622,6 +707,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -636,6 +729,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id, opts=opts)
+
             # GetConfigurationItem: Get the specific configuration item within an existing set
             api_response = await api_instance.get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id)
             pprint(api_response)
@@ -685,6 +781,7 @@ GetConfigurationSet: Get a configuration set, including all the associated metad
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -711,6 +808,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -724,6 +829,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id, opts=opts)
+
             # GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
             api_response = await api_instance.get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id)
             pprint(api_response)
@@ -772,6 +880,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -798,6 +907,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -809,6 +926,9 @@ async def main():
         reveal = True # bool | Whether to reveal the secrets (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.get_system_configuration_items(code, key, reveal=reveal, opts=opts)
+
             # [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
             api_response = await api_instance.get_system_configuration_items(code, key, reveal=reveal)
             pprint(api_response)
@@ -855,6 +975,7 @@ GetSystemConfigurationSets: Get the specified system configuration sets, includi
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -881,6 +1002,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -891,6 +1020,9 @@ async def main():
         reveal = True # bool | Whether to reveal the secrets (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.get_system_configuration_sets(code, reveal=reveal, opts=opts)
+
             # GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
             api_response = await api_instance.get_system_configuration_sets(code, reveal=reveal)
             pprint(api_response)
@@ -936,6 +1068,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -962,6 +1095,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -972,6 +1113,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.list_configuration_sets(type=type, user_id=user_id, opts=opts)
+
             # [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
             api_response = await api_instance.list_configuration_sets(type=type, user_id=user_id)
             pprint(api_response)
@@ -1016,6 +1160,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -1042,6 +1187,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -1061,6 +1214,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.update_configuration_item(type, scope, code, key, update_configuration_item, user_id=user_id, opts=opts)
+
             # [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item's value and/or description
             api_response = await api_instance.update_configuration_item(type, scope, code, key, update_configuration_item, user_id=user_id)
             pprint(api_response)
@@ -1110,6 +1266,7 @@ Name | Type | Description  | Notes
 ```python
 import asyncio
 from lusid_configuration.exceptions import ApiException
+from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
@@ -1136,6 +1293,14 @@ async def main():
     # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
+
+    # uncomment the below to use configuration overrides
+    # opts = ConfigurationOptions();
+    # opts.total_timeout_ms = 30_000
+
+    # uncomment the below to use an api client factory with overrides
+    # api_client_factory = ApiClientFactory(opts=opts)
+
     api_client_factory = ApiClientFactory()
 
     # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
@@ -1154,6 +1319,9 @@ async def main():
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
+            # uncomment the below to set overrides at the request level
+            # api_response = await api_instance.update_configuration_set(type, scope, code, update_configuration_set, user_id=user_id, opts=opts)
+
             # [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
             api_response = await api_instance.update_configuration_set(type, scope, code, update_configuration_set, user_id=user_id)
             pprint(api_response)
