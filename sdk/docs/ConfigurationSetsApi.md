@@ -77,9 +77,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # create_configuration_item = CreateConfigurationItem()
         # create_configuration_item = CreateConfigurationItem.from_json("")
-        create_configuration_item = CreateConfigurationItem.from_dict({"key":"password","value":"a super secret password","valueType":"text","isSecret":false,"description":"Password for System A","blockReveal":false}) # CreateConfigurationItem | The data to create a configuration item
+        # create_configuration_item = CreateConfigurationItem.from_dict({})
+        create_configuration_item = CreateConfigurationItem()
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
@@ -262,9 +262,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # create_configuration_set = CreateConfigurationSet()
         # create_configuration_set = CreateConfigurationSet.from_json("")
-        create_configuration_set = CreateConfigurationSet.from_dict({"id":{"scope":"official","code":"system-a-config"},"type":"shared","description":"All the config related to System A"}) # CreateConfigurationSet | The data to create a configuration set
+        # create_configuration_set = CreateConfigurationSet.from_dict({})
+        create_configuration_set = CreateConfigurationSet()
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
@@ -1208,9 +1208,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # update_configuration_item = UpdateConfigurationItem()
         # update_configuration_item = UpdateConfigurationItem.from_json("")
-        update_configuration_item = UpdateConfigurationItem.from_dict({"value":"updated password","description":"Password for system A and B","blockReveal":false}) # UpdateConfigurationItem | The data to update a configuration item
+        # update_configuration_item = UpdateConfigurationItem.from_dict({})
+        update_configuration_item = UpdateConfigurationItem()
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
@@ -1313,9 +1313,9 @@ async def main():
 
         # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
         # Change the lines below to switch approach
-        # update_configuration_set = UpdateConfigurationSet()
         # update_configuration_set = UpdateConfigurationSet.from_json("")
-        update_configuration_set = UpdateConfigurationSet.from_dict({"description":"The group of configurations related to System A and B"}) # UpdateConfigurationSet | The data to update a configuration set
+        # update_configuration_set = UpdateConfigurationSet.from_dict({})
+        update_configuration_set = UpdateConfigurationSet()
         user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
         try:
