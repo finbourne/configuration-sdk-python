@@ -28,33 +28,32 @@ Method | HTTP request | Description
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -63,36 +62,37 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared
-        scope = 'scope_example' # str | The scope that identifies a configuration set
-        code = 'code_example' # str | The code that identifies a configuration set
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared
+    scope = 'scope_example' # str | The scope that identifies a configuration set
+    code = 'code_example' # str | The code that identifies a configuration set
 
-        # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
-        # Change the lines below to switch approach
-        # create_configuration_item = CreateConfigurationItem.from_json("")
-        # create_configuration_item = CreateConfigurationItem.from_dict({})
-        create_configuration_item = CreateConfigurationItem()
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
+    # Change the lines below to switch approach
+    # create_configuration_item = CreateConfigurationItem.from_json("")
+    # create_configuration_item = CreateConfigurationItem.from_dict({})
+    create_configuration_item = CreateConfigurationItem()
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.add_configuration_to_set(type, scope, code, create_configuration_item, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.add_configuration_to_set(type, scope, code, create_configuration_item, user_id=user_id, opts=opts)
 
-            # [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
-            api_response = await api_instance.add_configuration_to_set(type, scope, code, create_configuration_item, user_id=user_id)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->add_configuration_to_set: %s\n" % e)
+        # [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
+        api_response = api_instance.add_configuration_to_set(type, scope, code, create_configuration_item, user_id=user_id)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->add_configuration_to_set: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -132,33 +132,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -167,24 +166,25 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # await api_instance.check_access_token_exists(opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        #  api_instance.check_access_token_exists(opts=opts)
 
-            # [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
-            await api_instance.check_access_token_exists()        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->check_access_token_exists: %s\n" % e)
+        # [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
+        api_instance.check_access_token_exists()
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->check_access_token_exists: %s\n" % e)
 
-asyncio.run(main())
+main()
 ```
 
 ### Parameters
@@ -216,33 +216,32 @@ void (empty response body)
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -251,33 +250,34 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
 
-        # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
-        # Change the lines below to switch approach
-        # create_configuration_set = CreateConfigurationSet.from_json("")
-        # create_configuration_set = CreateConfigurationSet.from_dict({})
-        create_configuration_set = CreateConfigurationSet()
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
+    # Change the lines below to switch approach
+    # create_configuration_set = CreateConfigurationSet.from_json("")
+    # create_configuration_set = CreateConfigurationSet.from_dict({})
+    create_configuration_set = CreateConfigurationSet()
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.create_configuration_set(create_configuration_set, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.create_configuration_set(create_configuration_set, user_id=user_id, opts=opts)
 
-            # [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
-            api_response = await api_instance.create_configuration_set(create_configuration_set, user_id=user_id)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->create_configuration_set: %s\n" % e)
+        # [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
+        api_response = api_instance.create_configuration_set(create_configuration_set, user_id=user_id)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->create_configuration_set: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -313,33 +313,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -348,24 +347,25 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # await api_instance.delete_access_token(opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        #  api_instance.delete_access_token(opts=opts)
 
-            # [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
-            await api_instance.delete_access_token()        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->delete_access_token: %s\n" % e)
+        # [DEPRECATED] DeleteAccessToken: Delete any stored Personal Access Token for the current user
+        api_instance.delete_access_token()
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->delete_access_token: %s\n" % e)
 
-asyncio.run(main())
+main()
 ```
 
 ### Parameters
@@ -396,33 +396,32 @@ void (empty response body)
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -431,29 +430,30 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared
-        scope = 'scope_example' # str | The scope that identifies a configuration set
-        code = 'code_example' # str | The code that identifies a configuration set
-        key = 'key_example' # str | The key that identifies a configuration item
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared
+    scope = 'scope_example' # str | The scope that identifies a configuration set
+    code = 'code_example' # str | The code that identifies a configuration set
+    key = 'key_example' # str | The key that identifies a configuration item
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # await api_instance.delete_configuration_item(type, scope, code, key, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        #  api_instance.delete_configuration_item(type, scope, code, key, user_id=user_id, opts=opts)
 
-            # [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
-            await api_instance.delete_configuration_item(type, scope, code, key, user_id=user_id)        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->delete_configuration_item: %s\n" % e)
+        # [EARLY ACCESS] DeleteConfigurationItem: Remove the specified configuration item from the specified configuration set
+        api_instance.delete_configuration_item(type, scope, code, key, user_id=user_id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->delete_configuration_item: %s\n" % e)
 
-asyncio.run(main())
+main()
 ```
 
 ### Parameters
@@ -493,33 +493,32 @@ void (empty response body)
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -528,28 +527,29 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared
-        scope = 'scope_example' # str | The scope that identifies a configuration set
-        code = 'code_example' # str | The code that identifies a configuration set
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared
+    scope = 'scope_example' # str | The scope that identifies a configuration set
+    code = 'code_example' # str | The code that identifies a configuration set
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # await api_instance.delete_configuration_set(type, scope, code, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        #  api_instance.delete_configuration_set(type, scope, code, user_id=user_id, opts=opts)
 
-            # [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
-            await api_instance.delete_configuration_set(type, scope, code, user_id=user_id)        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->delete_configuration_set: %s\n" % e)
+        # [EARLY ACCESS] DeleteConfigurationSet: Deletes a configuration set along with all their configuration items
+        api_instance.delete_configuration_set(type, scope, code, user_id=user_id)
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->delete_configuration_set: %s\n" % e)
 
-asyncio.run(main())
+main()
 ```
 
 ### Parameters
@@ -588,33 +588,32 @@ void (empty response body)
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -623,27 +622,28 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        action = 'action_example' # str | action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    action = 'action_example' # str | action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.generate_access_token(action=action, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.generate_access_token(action=action, opts=opts)
 
-            # [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
-            api_response = await api_instance.generate_access_token(action=action)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->generate_access_token: %s\n" % e)
+        # [DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token
+        api_response = api_instance.generate_access_token(action=action)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->generate_access_token: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -678,33 +678,32 @@ GetConfigurationItem: Get the specific configuration item within an existing set
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -713,32 +712,33 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared
-        scope = 'scope_example' # str | The scope that identifies a configuration set
-        code = 'code_example' # str | The code that identifies a configuration set
-        key = 'key_example' # str | The key that identifies a configuration item
-        reveal = True # bool | Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared
+    scope = 'scope_example' # str | The scope that identifies a configuration set
+    code = 'code_example' # str | The code that identifies a configuration set
+    key = 'key_example' # str | The key that identifies a configuration item
+    reveal = True # bool | Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id, opts=opts)
 
-            # GetConfigurationItem: Get the specific configuration item within an existing set
-            api_response = await api_instance.get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->get_configuration_item: %s\n" % e)
+        # GetConfigurationItem: Get the specific configuration item within an existing set
+        api_response = api_instance.get_configuration_item(type, scope, code, key, reveal=reveal, user_id=user_id)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->get_configuration_item: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -779,33 +779,32 @@ GetConfigurationSet: Get a configuration set, including all the associated metad
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -814,31 +813,32 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared
-        scope = 'scope_example' # str | The scope that identifies a configuration set
-        code = 'code_example' # str | The code that identifies a configuration set
-        reveal = True # bool | Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared
+    scope = 'scope_example' # str | The scope that identifies a configuration set
+    code = 'code_example' # str | The code that identifies a configuration set
+    reveal = True # bool | Whether to reveal the secrets. This is only available when the userId query setting has not been specified. (optional)
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id, opts=opts)
 
-            # GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
-            api_response = await api_instance.get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->get_configuration_set: %s\n" % e)
+        # GetConfigurationSet: Get a configuration set, including all the associated metadata. By default secrets will not be revealed
+        api_response = api_instance.get_configuration_set(type, scope, code, reveal=reveal, user_id=user_id)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->get_configuration_set: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -878,33 +878,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -913,29 +912,30 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        code = 'code_example' # str | The code that identifies a system configuration set
-        key = 'key_example' # str | The key that identifies a system configuration item
-        reveal = True # bool | Whether to reveal the secrets (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    code = 'code_example' # str | The code that identifies a system configuration set
+    key = 'key_example' # str | The key that identifies a system configuration item
+    reveal = True # bool | Whether to reveal the secrets (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.get_system_configuration_items(code, key, reveal=reveal, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.get_system_configuration_items(code, key, reveal=reveal, opts=opts)
 
-            # [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
-            api_response = await api_instance.get_system_configuration_items(code, key, reveal=reveal)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->get_system_configuration_items: %s\n" % e)
+        # [EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint
+        api_response = api_instance.get_system_configuration_items(code, key, reveal=reveal)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->get_system_configuration_items: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -973,33 +973,32 @@ GetSystemConfigurationSets: Get the specified system configuration sets, includi
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -1008,28 +1007,29 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        code = 'code_example' # str | The code that identifies a system configuration set
-        reveal = True # bool | Whether to reveal the secrets (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    code = 'code_example' # str | The code that identifies a system configuration set
+    reveal = True # bool | Whether to reveal the secrets (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.get_system_configuration_sets(code, reveal=reveal, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.get_system_configuration_sets(code, reveal=reveal, opts=opts)
 
-            # GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
-            api_response = await api_instance.get_system_configuration_sets(code, reveal=reveal)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->get_system_configuration_sets: %s\n" % e)
+        # GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint
+        api_response = api_instance.get_system_configuration_sets(code, reveal=reveal)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->get_system_configuration_sets: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -1066,33 +1066,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -1101,28 +1100,29 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared (optional)
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared (optional)
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.list_configuration_sets(type=type, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.list_configuration_sets(type=type, user_id=user_id, opts=opts)
 
-            # [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
-            api_response = await api_instance.list_configuration_sets(type=type, user_id=user_id)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->list_configuration_sets: %s\n" % e)
+        # [EARLY ACCESS] ListConfigurationSets: List all configuration sets summaries (I.e. list of scope/code combinations available)
+        api_response = api_instance.list_configuration_sets(type=type, user_id=user_id)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->list_configuration_sets: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -1158,33 +1158,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -1193,37 +1192,38 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared
-        scope = 'scope_example' # str | The scope that identifies a configuration set
-        code = 'code_example' # str | The code that identifies a configuration set
-        key = 'key_example' # str | The key that identifies a configuration item
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared
+    scope = 'scope_example' # str | The scope that identifies a configuration set
+    code = 'code_example' # str | The code that identifies a configuration set
+    key = 'key_example' # str | The key that identifies a configuration item
 
-        # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
-        # Change the lines below to switch approach
-        # update_configuration_item = UpdateConfigurationItem.from_json("")
-        # update_configuration_item = UpdateConfigurationItem.from_dict({})
-        update_configuration_item = UpdateConfigurationItem()
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
+    # Change the lines below to switch approach
+    # update_configuration_item = UpdateConfigurationItem.from_json("")
+    # update_configuration_item = UpdateConfigurationItem.from_dict({})
+    update_configuration_item = UpdateConfigurationItem()
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.update_configuration_item(type, scope, code, key, update_configuration_item, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.update_configuration_item(type, scope, code, key, update_configuration_item, user_id=user_id, opts=opts)
 
-            # [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item's value and/or description
-            api_response = await api_instance.update_configuration_item(type, scope, code, key, update_configuration_item, user_id=user_id)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->update_configuration_item: %s\n" % e)
+        # [EARLY ACCESS] UpdateConfigurationItem: Update a configuration item's value and/or description
+        api_response = api_instance.update_configuration_item(type, scope, code, key, update_configuration_item, user_id=user_id)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->update_configuration_item: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
@@ -1264,33 +1264,32 @@ Name | Type | Description  | Notes
 ### Example
 
 ```python
-import asyncio
 from lusid_configuration.exceptions import ApiException
 from lusid_configuration.extensions.configuration_options import ConfigurationOptions
 from lusid_configuration.models import *
 from pprint import pprint
 from lusid_configuration import (
-    ApiClientFactory,
+    SyncApiClientFactory,
     ConfigurationSetsApi
 )
 
-async def main():
+def main():
 
     with open("secrets.json", "w") as file:
         file.write('''
-{
-    "api":
     {
-        "tokenUrl":"<your-token-url>",
-        "configurationUrl":"https://<your-domain>.lusid.com/configuration",
-        "username":"<your-username>",
-        "password":"<your-password>",
-        "clientId":"<your-client-id>",
-        "clientSecret":"<your-client-secret>"
-    }
-}''')
+        "api":
+        {
+            "tokenUrl":"<your-token-url>",
+            "configurationUrl":"https://<your-domain>.lusid.com/configuration",
+            "username":"<your-username>",
+            "password":"<your-password>",
+            "clientId":"<your-client-id>",
+            "clientSecret":"<your-client-secret>"
+        }
+    }''')
 
-    # Use the lusid_configuration ApiClientFactory to build Api instances with a configured api client
+    # Use the lusid_configuration SyncApiClientFactory to build Api instances with a configured api client
     # By default this will read config from environment variables
     # Then from a secrets.json file found in the current working directory
 
@@ -1299,36 +1298,37 @@ async def main():
     # opts.total_timeout_ms = 30_000
 
     # uncomment the below to use an api client factory with overrides
-    # api_client_factory = ApiClientFactory(opts=opts)
+    # api_client_factory = SyncApiClientFactory(opts=opts)
 
-    api_client_factory = ApiClientFactory()
+    api_client_factory = SyncApiClientFactory()
 
-    # Enter a context with an instance of the ApiClientFactory to ensure the connection pool is closed after use
-    async with api_client_factory:
-        # Create an instance of the API class
-        api_instance = api_client_factory.build(ConfigurationSetsApi)
-        type = 'type_example' # str | Whether the configuration set is Personal or Shared
-        scope = 'scope_example' # str | The scope that identifies a configuration set
-        code = 'code_example' # str | The code that identifies a configuration set
+    # Enter a context with an instance of the SyncApiClientFactory to ensure the connection pool is closed after use
+    
+    # Create an instance of the API class
+    api_instance = api_client_factory.build(ConfigurationSetsApi)
+    type = 'type_example' # str | Whether the configuration set is Personal or Shared
+    scope = 'scope_example' # str | The scope that identifies a configuration set
+    code = 'code_example' # str | The code that identifies a configuration set
 
-        # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
-        # Change the lines below to switch approach
-        # update_configuration_set = UpdateConfigurationSet.from_json("")
-        # update_configuration_set = UpdateConfigurationSet.from_dict({})
-        update_configuration_set = UpdateConfigurationSet()
-        user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
+    # Objects can be created either via the class constructor, or using the 'from_dict' or 'from_json' methods
+    # Change the lines below to switch approach
+    # update_configuration_set = UpdateConfigurationSet.from_json("")
+    # update_configuration_set = UpdateConfigurationSet.from_dict({})
+    update_configuration_set = UpdateConfigurationSet()
+    user_id = 'user_id_example' # str | Feature that allows Administrators to administer personal settings  (but never reveal the value of secrets) of a specific user. (optional)
 
-        try:
-            # uncomment the below to set overrides at the request level
-            # api_response = await api_instance.update_configuration_set(type, scope, code, update_configuration_set, user_id=user_id, opts=opts)
+    try:
+        # uncomment the below to set overrides at the request level
+        # api_response =  api_instance.update_configuration_set(type, scope, code, update_configuration_set, user_id=user_id, opts=opts)
 
-            # [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
-            api_response = await api_instance.update_configuration_set(type, scope, code, update_configuration_set, user_id=user_id)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling ConfigurationSetsApi->update_configuration_set: %s\n" % e)
+        # [EARLY ACCESS] UpdateConfigurationSet: Update the description of a configuration set
+        api_response = api_instance.update_configuration_set(type, scope, code, update_configuration_set, user_id=user_id)
+        pprint(api_response)
 
-asyncio.run(main())
+    except ApiException as e:
+        print("Exception when calling ConfigurationSetsApi->update_configuration_set: %s\n" % e)
+
+main()
 ```
 
 ### Parameters
