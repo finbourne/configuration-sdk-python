@@ -19,17 +19,17 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, conlist, constr
+from pydantic.v1 import BaseModel, Field, conlist, constr, Field
 from lusid_configuration.models.link import Link
 
 class PersonalAccessToken(BaseModel):
     """
     Representation of a Personal Access Token under a Configuration Item format.  # noqa: E501
     """
-    value: constr(strict=True, min_length=1) = Field(..., description="Value of the Personal Access Token.")
-    type: constr(strict=True, min_length=1) = Field(..., description="The type of the Personal Access Token.")
-    description: constr(strict=True, min_length=1) = Field(..., description="The description of the Personal Access Token.")
-    ref: constr(strict=True, min_length=1) = Field(..., description="The reference to the Personal Access Token")
+    value: constr(strict=True) = Field(...,alias="value", description="Value of the Personal Access Token.") 
+    type: constr(strict=True) = Field(...,alias="type", description="The type of the Personal Access Token.") 
+    description: constr(strict=True) = Field(...,alias="description", description="The description of the Personal Access Token.") 
+    ref: constr(strict=True) = Field(...,alias="ref", description="The reference to the Personal Access Token") 
     links: Optional[conlist(Link)] = None
     __properties = ["value", "type", "description", "ref", "links"]
 
@@ -37,6 +37,14 @@ class PersonalAccessToken(BaseModel):
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

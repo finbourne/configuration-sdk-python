@@ -19,20 +19,28 @@ import json
 
 
 from typing import Any, Dict
-from pydantic.v1 import BaseModel, Field, constr
+from pydantic.v1 import BaseModel, Field, constr, Field
 
 class ResourceId(BaseModel):
     """
     Identifiers of an entity  # noqa: E501
     """
-    scope: constr(strict=True, max_length=512, min_length=1) = Field(..., description="The scope used to identify an entity")
-    code: constr(strict=True, max_length=512, min_length=1) = Field(..., description="The code used to identify an entity")
+    scope: constr(strict=True) = Field(...,alias="scope", description="The scope used to identify an entity") 
+    code: constr(strict=True) = Field(...,alias="code", description="The code used to identify an entity") 
     __properties = ["scope", "code"]
 
     class Config:
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

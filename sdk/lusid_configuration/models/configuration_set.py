@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist, constr
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist, constr, Field
 from lusid_configuration.models.configuration_item_summary import ConfigurationItemSummary
 from lusid_configuration.models.link import Link
 from lusid_configuration.models.resource_id import ResourceId
@@ -29,13 +29,13 @@ class ConfigurationSet(BaseModel):
     The full version of the configuration set  # noqa: E501
     """
     created_at: datetime = Field(..., alias="createdAt", description="The date referring to the creation date of the configuration set")
-    created_by: constr(strict=True, min_length=1) = Field(..., alias="createdBy", description="Who created the configuration set")
+    created_by: constr(strict=True) = Field(...,alias="createdBy", description="Who created the configuration set") 
     last_modified_at: datetime = Field(..., alias="lastModifiedAt", description="The date referring to the date when the configuration set was last modified")
-    last_modified_by: constr(strict=True, min_length=1) = Field(..., alias="lastModifiedBy", description="Who modified the configuration set most recently")
-    description: Optional[StrictStr] = Field(None, description="Describes the configuration set")
+    last_modified_by: constr(strict=True) = Field(...,alias="lastModifiedBy", description="Who modified the configuration set most recently") 
+    description: constr(strict=True) = Field(None,alias="description", description="Describes the configuration set") 
     items: Optional[conlist(ConfigurationItemSummary)] = Field(None, description="The collection of the configuration items that this set contains.")
     id: ResourceId = Field(...)
-    type: constr(strict=True, min_length=1) = Field(..., description="The type (personal or shared) of the configuration set")
+    type: constr(strict=True) = Field(...,alias="type", description="The type (personal or shared) of the configuration set") 
     links: Optional[conlist(Link)] = None
     __properties = ["createdAt", "createdBy", "lastModifiedAt", "lastModifiedBy", "description", "items", "id", "type", "links"]
 
@@ -43,6 +43,14 @@ class ConfigurationSet(BaseModel):
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""

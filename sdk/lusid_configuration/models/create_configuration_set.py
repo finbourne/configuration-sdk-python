@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, constr
+from pydantic.v1 import BaseModel, Field, constr, Field
 from lusid_configuration.models.resource_id import ResourceId
 
 class CreateConfigurationSet(BaseModel):
@@ -27,14 +27,22 @@ class CreateConfigurationSet(BaseModel):
     The information required to create a new configuration set  # noqa: E501
     """
     id: ResourceId = Field(...)
-    type: constr(strict=True, min_length=1) = Field(..., description="The type (personal or shared) of the new configuration set")
-    description: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(None, description="The description of the new configuration set")
+    type: constr(strict=True) = Field(...,alias="type", description="The type (personal or shared) of the new configuration set") 
+    description: constr(strict=True) = Field(None,alias="description", description="The description of the new configuration set") 
     __properties = ["id", "type", "description"]
 
     class Config:
         """Pydantic configuration"""
         allow_population_by_field_name = True
         validate_assignment = True
+
+    def __str__(self):
+        """For `print` and `pprint`"""
+        return pprint.pformat(self.dict(by_alias=False))
+
+    def __repr__(self):
+        """For `print` and `pprint`"""
+        return self.to_str()
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
