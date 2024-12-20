@@ -19,19 +19,33 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, constr, validator, Field
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, constr, validator
 
 class CreateConfigurationItem(BaseModel):
     """
     The information required to create a configuration item  # noqa: E501
     """
-    key: constr(strict=True) = Field(...,alias="key", description="The key of the new configuration item") 
-    value: constr(strict=True) = Field(...,alias="value", description="The value of the new configuration item                The maximum size for secrets is 4KB and for text values is 2MB") 
-    value_type: constr(strict=True) = Field(None,alias="valueType", description="The type (text, number, boolean, textCollection, numberCollection) of the new configuration item&#39;s value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \&quot;5.5\&quot;)  - boolean: true/false  - textCollection: comma separated list (e.g. \&quot;a,b,c\&quot;)  - numberCollection: comma separated list of doubles (e.g. \&quot;1,2,3\&quot;)") 
+    key: constr(strict=True, max_length=256, min_length=1) = Field(..., description="The key of the new configuration item")
+    value: constr(strict=True, max_length=2000000, min_length=1) = Field(..., description="The value of the new configuration item                The maximum size for secrets is 4KB and for text values is 2MB")
+    value_type: Optional[StrictStr] = Field(None, alias="valueType", description="The type (text, number, boolean, textCollection, numberCollection) of the new configuration item's value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \"5.5\")  - boolean: true/false  - textCollection: comma separated list (e.g. \"a,b,c\")  - numberCollection: comma separated list of doubles (e.g. \"1,2,3\")")
     is_secret: StrictBool = Field(..., alias="isSecret", description="Defines whether or not the value is a secret")
-    description: constr(strict=True) = Field(None,alias="description", description="The description of the new configuration item") 
+    description: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(None, description="The description of the new configuration item")
     block_reveal: Optional[StrictBool] = Field(None, alias="blockReveal", description="A property to indicate if revealing the value is blocked.")
     __properties = ["key", "value", "valueType", "isSecret", "description", "blockReveal"]
+
+    @validator('key')
+    def key_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[^_][a-zA-Z0-9\-_]*$", value):
+            raise ValueError(r"must validate the regular expression /^[^_][a-zA-Z0-9\-_]*$/")
+        return value
+
+    @validator('value')
+    def value_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"(?s).*", value):
+            raise ValueError(r"must validate the regular expression /(?s).*/")
+        return value
 
     class Config:
         """Pydantic configuration"""

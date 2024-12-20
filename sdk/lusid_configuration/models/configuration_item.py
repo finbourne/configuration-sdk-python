@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist, constr, Field
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, conlist, constr
 from lusid_configuration.models.link import Link
 
 class ConfigurationItem(BaseModel):
@@ -27,15 +27,15 @@ class ConfigurationItem(BaseModel):
     The full version of the configuration item  # noqa: E501
     """
     created_at: datetime = Field(..., alias="createdAt", description="The date referring to the creation date of the configuration item")
-    created_by: constr(strict=True) = Field(...,alias="createdBy", description="Who created the configuration item") 
+    created_by: constr(strict=True, min_length=1) = Field(..., alias="createdBy", description="Who created the configuration item")
     last_modified_at: datetime = Field(..., alias="lastModifiedAt", description="The date referring to the date when the configuration item was last modified")
-    last_modified_by: constr(strict=True) = Field(...,alias="lastModifiedBy", description="Who modified the configuration item most recently") 
-    description: constr(strict=True) = Field(None,alias="description", description="Describes the configuration item") 
-    key: constr(strict=True) = Field(...,alias="key", description="The key which identifies the configuration item") 
-    value: constr(strict=True) = Field(...,alias="value", description="The value of the configuration item") 
-    value_type: constr(strict=True) = Field(...,alias="valueType", description="The type of the configuration item&#39;s value") 
+    last_modified_by: constr(strict=True, min_length=1) = Field(..., alias="lastModifiedBy", description="Who modified the configuration item most recently")
+    description: Optional[StrictStr] = Field(None, description="Describes the configuration item")
+    key: constr(strict=True, min_length=1) = Field(..., description="The key which identifies the configuration item")
+    value: constr(strict=True, min_length=1) = Field(..., description="The value of the configuration item")
+    value_type: constr(strict=True, min_length=1) = Field(..., alias="valueType", description="The type of the configuration item's value")
     is_secret: StrictBool = Field(..., alias="isSecret", description="Defines whether or not the value is a secret.")
-    ref: constr(strict=True) = Field(...,alias="ref", description="The reference to the configuration item") 
+    ref: constr(strict=True, min_length=1) = Field(..., description="The reference to the configuration item")
     block_reveal: StrictBool = Field(..., alias="blockReveal", description="Defines whether the value is blocked with non-internal request.")
     links: Optional[conlist(Link)] = None
     __properties = ["createdAt", "createdBy", "lastModifiedAt", "lastModifiedBy", "description", "key", "value", "valueType", "isSecret", "ref", "blockReveal", "links"]

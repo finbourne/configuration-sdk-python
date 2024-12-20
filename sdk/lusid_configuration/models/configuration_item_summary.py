@@ -19,18 +19,18 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, conlist, constr, Field
+from pydantic.v1 import BaseModel, Field, StrictBool, conlist, constr
 from lusid_configuration.models.link import Link
 
 class ConfigurationItemSummary(BaseModel):
     """
     A single configuration object  # noqa: E501
     """
-    key: constr(strict=True) = Field(...,alias="key", description="The key which identifies the configuration item") 
-    value: constr(strict=True) = Field(...,alias="value", description="The value of the configuration item") 
-    value_type: constr(strict=True) = Field(...,alias="valueType", description="The type of the configuration item&#39;s value") 
+    key: constr(strict=True, min_length=1) = Field(..., description="The key which identifies the configuration item")
+    value: constr(strict=True, min_length=1) = Field(..., description="The value of the configuration item")
+    value_type: constr(strict=True, min_length=1) = Field(..., alias="valueType", description="The type of the configuration item's value")
     is_secret: StrictBool = Field(..., alias="isSecret", description="Defines whether or not the value is a secret.")
-    ref: constr(strict=True) = Field(...,alias="ref", description="The reference to the configuration item") 
+    ref: constr(strict=True, min_length=1) = Field(..., description="The reference to the configuration item")
     block_reveal: StrictBool = Field(..., alias="blockReveal", description="Defines whether the value is blocked with non-internal request.")
     links: Optional[conlist(Link)] = None
     __properties = ["key", "value", "valueType", "isSecret", "ref", "blockReveal", "links"]

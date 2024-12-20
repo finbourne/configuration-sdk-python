@@ -19,13 +19,13 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, constr, Field
+from pydantic.v1 import BaseModel, Field, constr
 
 class UpdateConfigurationSet(BaseModel):
     """
     The information required to update a configuration set  # noqa: E501
     """
-    description: constr(strict=True) = Field(None,alias="description", description="The new description of the configuration set") 
+    description: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(None, description="The new description of the configuration set")
     __properties = ["description"]
 
     class Config:
