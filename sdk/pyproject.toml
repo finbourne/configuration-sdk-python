@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lusid-configuration-sdk"
-version = "2.1.52"
+version = "2.1.53"
 description = "FINBOURNE ConfigurationService API"
 authors = ["FINBOURNE Technology <info@finbourne.com>"]
 license = "MIT"
