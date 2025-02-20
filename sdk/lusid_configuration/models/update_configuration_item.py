@@ -19,23 +19,16 @@ import json
 
 
 from typing import Any, Dict, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, constr, validator
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictBool, constr, validator 
 
 class UpdateConfigurationItem(BaseModel):
     """
     The information required to update a configuration item  # noqa: E501
     """
-    value: constr(strict=True, max_length=2000000, min_length=1) = Field(..., description="The new value of the configuration item")
-    description: Optional[constr(strict=True, max_length=255, min_length=0)] = Field(None, description="The new description of the configuration item")
+    value:  StrictStr = Field(...,alias="value", description="The new value of the configuration item") 
+    description:  Optional[StrictStr] = Field(None,alias="description", description="The new description of the configuration item") 
     block_reveal: Optional[StrictBool] = Field(None, alias="blockReveal", description="The requested new state of BlockReveal")
     __properties = ["value", "description", "blockReveal"]
-
-    @validator('value')
-    def value_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"(?s).*", value):
-            raise ValueError(r"must validate the regular expression /(?s).*/")
-        return value
 
     class Config:
         """Pydantic configuration"""

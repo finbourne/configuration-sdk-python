@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, conlist, constr
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, conlist, constr 
 from lusid_configuration.models.link import Link
 from lusid_configuration.models.resource_id import ResourceId
 
@@ -28,7 +28,7 @@ class ConfigurationSetSummary(BaseModel):
     A group of configuration items  # noqa: E501
     """
     id: ResourceId = Field(...)
-    type: constr(strict=True, min_length=1) = Field(..., description="The type (personal or shared) of the configuration set")
+    type:  StrictStr = Field(...,alias="type", description="The type (personal or shared) of the configuration set") 
     links: Optional[conlist(Link)] = None
     __properties = ["id", "type", "links"]
 

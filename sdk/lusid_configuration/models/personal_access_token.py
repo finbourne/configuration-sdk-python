@@ -19,17 +19,17 @@ import json
 
 
 from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, conlist, constr
+from pydantic.v1 import StrictStr, Field, BaseModel, Field, conlist, constr 
 from lusid_configuration.models.link import Link
 
 class PersonalAccessToken(BaseModel):
     """
     Representation of a Personal Access Token under a Configuration Item format.  # noqa: E501
     """
-    value: constr(strict=True, min_length=1) = Field(..., description="Value of the Personal Access Token.")
-    type: constr(strict=True, min_length=1) = Field(..., description="The type of the Personal Access Token.")
-    description: constr(strict=True, min_length=1) = Field(..., description="The description of the Personal Access Token.")
-    ref: constr(strict=True, min_length=1) = Field(..., description="The reference to the Personal Access Token")
+    value:  StrictStr = Field(...,alias="value", description="Value of the Personal Access Token.") 
+    type:  StrictStr = Field(...,alias="type", description="The type of the Personal Access Token.") 
+    description:  StrictStr = Field(...,alias="description", description="The description of the Personal Access Token.") 
+    ref:  StrictStr = Field(...,alias="ref", description="The reference to the Personal Access Token") 
     links: Optional[conlist(Link)] = None
     __properties = ["value", "type", "description", "ref", "links"]
 
