@@ -1,7 +1,6 @@
 # PersonalAccessToken
 
 Representation of a Personal Access Token under a Configuration Item format.
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,24 +9,21 @@ Name | Type | Description | Notes
 **description** | **str** | The description of the Personal Access Token. | [readonly] 
 **ref** | **str** | The reference to the Personal Access Token | [readonly] 
 **links** | [**List[Link]**](Link.md) |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_configuration.models.personal_access_token import PersonalAccessToken
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, conlist, constr
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of PersonalAccessToken from a JSON string
-personal_access_token_instance = PersonalAccessToken.from_json(json)
-# print the JSON string representation of the object
-print PersonalAccessToken.to_json()
+value: StrictStr = "example_value"
+type: StrictStr = "example_type"
+description: StrictStr = "example_description"
+ref: StrictStr = "example_ref"
+links: Optional[conlist(Link)] = None
+personal_access_token_instance = PersonalAccessToken(value=value, type=type, description=description, ref=ref, links=links)
 
-# convert the object into a dict
-personal_access_token_dict = personal_access_token_instance.to_dict()
-# create an instance of PersonalAccessToken from a dict
-personal_access_token_form_dict = personal_access_token.from_dict(personal_access_token_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

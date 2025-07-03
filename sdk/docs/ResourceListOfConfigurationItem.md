@@ -1,6 +1,5 @@
 # ResourceListOfConfigurationItem
 
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -9,24 +8,21 @@ Name | Type | Description | Notes
 **links** | [**List[Link]**](Link.md) |  | [optional] 
 **next_page** | **str** |  | [optional] 
 **previous_page** | **str** |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_configuration.models.resource_list_of_configuration_item import ResourceListOfConfigurationItem
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of ResourceListOfConfigurationItem from a JSON string
-resource_list_of_configuration_item_instance = ResourceListOfConfigurationItem.from_json(json)
-# print the JSON string representation of the object
-print ResourceListOfConfigurationItem.to_json()
+values: conlist(ConfigurationItem) = # Replace with your value
+href: Optional[StrictStr] = "example_href"
+links: Optional[conlist(Link)] = None
+next_page: Optional[StrictStr] = "example_next_page"
+previous_page: Optional[StrictStr] = "example_previous_page"
+resource_list_of_configuration_item_instance = ResourceListOfConfigurationItem(values=values, href=href, links=links, next_page=next_page, previous_page=previous_page)
 
-# convert the object into a dict
-resource_list_of_configuration_item_dict = resource_list_of_configuration_item_instance.to_dict()
-# create an instance of ResourceListOfConfigurationItem from a dict
-resource_list_of_configuration_item_form_dict = resource_list_of_configuration_item.from_dict(resource_list_of_configuration_item_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

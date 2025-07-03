@@ -1,7 +1,6 @@
 # ConfigurationSet
 
 The full version of the configuration set
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -14,24 +13,25 @@ Name | Type | Description | Notes
 **id** | [**ResourceId**](ResourceId.md) |  | 
 **type** | **str** | The type (personal or shared) of the configuration set | 
 **links** | [**List[Link]**](Link.md) |  | [optional] 
-
 ## Example
 
 ```python
 from lusid_configuration.models.configuration_set import ConfigurationSet
+from typing import Any, Dict, List, Optional
+from pydantic.v1 import BaseModel, Field, StrictStr, conlist, constr
+from datetime import datetime
+created_at: datetime = # Replace with your value
+created_by: StrictStr = "example_created_by"
+last_modified_at: datetime = # Replace with your value
+last_modified_by: StrictStr = "example_last_modified_by"
+description: Optional[StrictStr] = "example_description"
+items: Optional[conlist(ConfigurationItemSummary)] = # Replace with your value
+id: ResourceId = # Replace with your value
+type: StrictStr = "example_type"
+links: Optional[conlist(Link)] = None
+configuration_set_instance = ConfigurationSet(created_at=created_at, created_by=created_by, last_modified_at=last_modified_at, last_modified_by=last_modified_by, description=description, items=items, id=id, type=type, links=links)
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of ConfigurationSet from a JSON string
-configuration_set_instance = ConfigurationSet.from_json(json)
-# print the JSON string representation of the object
-print ConfigurationSet.to_json()
-
-# convert the object into a dict
-configuration_set_dict = configuration_set_instance.to_dict()
-# create an instance of ConfigurationSet from a dict
-configuration_set_form_dict = configuration_set.from_dict(configuration_set_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

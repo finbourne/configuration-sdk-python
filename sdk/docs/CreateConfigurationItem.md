@@ -1,7 +1,6 @@
 # CreateConfigurationItem
 
 The information required to create a configuration item
-
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,24 +10,24 @@ Name | Type | Description | Notes
 **is_secret** | **bool** | Defines whether or not the value is a secret | 
 **description** | **str** | The description of the new configuration item | [optional] 
 **block_reveal** | **bool** | A property to indicate if revealing the value is blocked. | [optional] 
-
 ## Example
 
 ```python
 from lusid_configuration.models.create_configuration_item import CreateConfigurationItem
+from typing import Any, Dict, Optional
+from pydantic.v1 import BaseModel, Field, StrictBool, StrictStr, constr, validator
 
-# TODO update the JSON string below
-json = "{}"
-# create an instance of CreateConfigurationItem from a JSON string
-create_configuration_item_instance = CreateConfigurationItem.from_json(json)
-# print the JSON string representation of the object
-print CreateConfigurationItem.to_json()
+key: StrictStr = "example_key"
+value: StrictStr = "example_value"
+value_type: Optional[StrictStr] = "example_value_type"
+is_secret: StrictBool = # Replace with your value
+is_secret:StrictBool = True
+description: Optional[StrictStr] = "example_description"
+block_reveal: Optional[StrictBool] = # Replace with your value
+block_reveal:Optional[StrictBool] = None
+create_configuration_item_instance = CreateConfigurationItem(key=key, value=value, value_type=value_type, is_secret=is_secret, description=description, block_reveal=block_reveal)
 
-# convert the object into a dict
-create_configuration_item_dict = create_configuration_item_instance.to_dict()
-# create an instance of CreateConfigurationItem from a dict
-create_configuration_item_form_dict = create_configuration_item.from_dict(create_configuration_item_dict)
 ```
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
