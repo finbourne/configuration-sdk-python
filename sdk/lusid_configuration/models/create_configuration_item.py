@@ -26,8 +26,8 @@ class CreateConfigurationItem(BaseModel):
     The information required to create a configuration item  # noqa: E501
     """
     key:  StrictStr = Field(...,alias="key", description="The key of the new configuration item") 
-    value:  StrictStr = Field(...,alias="value", description="The value of the new configuration item                The maximum size for secrets is 4KB and for text values is 2MB") 
-    value_type:  Optional[StrictStr] = Field(None,alias="valueType", description="The type (text, number, boolean, textCollection, numberCollection) of the new configuration item's value.  The validation for each type is as follows:  - text: any value  - number: double (e.g. \"5.5\")  - boolean: true/false  - textCollection: comma separated list (e.g. \"a,b,c\")  - numberCollection: comma separated list of doubles (e.g. \"1,2,3\")") 
+    value:  StrictStr = Field(...,alias="value", description="The value of the new configuration item              The maximum size for secrets is 4KB and for text values is 2MB") 
+    value_type:  Optional[StrictStr] = Field(None,alias="valueType", description="The type (text, number, boolean, textCollection, numberCollection) of the new configuration item's value. The validation for each type is as follows: - text: any value - number: double (e.g. \"5.5\") - boolean: true/false - textCollection: comma separated list (e.g. \"a,b,c\") - numberCollection: comma separated list of doubles (e.g. \"1,2,3\")") 
     is_secret: StrictBool = Field(..., alias="isSecret", description="Defines whether or not the value is a secret")
     description:  Optional[StrictStr] = Field(None,alias="description", description="The description of the new configuration item") 
     block_reveal: Optional[StrictBool] = Field(None, alias="blockReveal", description="A property to indicate if revealing the value is blocked.")

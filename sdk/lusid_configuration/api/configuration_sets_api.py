@@ -1045,15 +1045,15 @@ class ConfigurationSetsApi:
 
 
     @overload
-    async def generate_access_token(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, **kwargs) -> PersonalAccessToken:  # noqa: E501
+    async def generate_access_token(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, **kwargs) -> PersonalAccessToken:  # noqa: E501
         ...
 
     @overload
-    def generate_access_token(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, async_req: Optional[bool]=True, **kwargs) -> PersonalAccessToken:  # noqa: E501
+    def generate_access_token(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, async_req: Optional[bool]=True, **kwargs) -> PersonalAccessToken:  # noqa: E501
         ...
 
     @validate_arguments
-    def generate_access_token(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[PersonalAccessToken, Awaitable[PersonalAccessToken]]:  # noqa: E501
+    def generate_access_token(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[PersonalAccessToken, Awaitable[PersonalAccessToken]]:  # noqa: E501
         """[DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1062,7 +1062,7 @@ class ConfigurationSetsApi:
         >>> thread = api.generate_access_token(action, async_req=True)
         >>> result = thread.get()
 
-        :param action: action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.
+        :param action: action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.
         :type action: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1083,7 +1083,7 @@ class ConfigurationSetsApi:
         return self.generate_access_token_with_http_info(action, **kwargs)  # noqa: E501
 
     @validate_arguments
-    def generate_access_token_with_http_info(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
+    def generate_access_token_with_http_info(self, action : Annotated[Optional[StrictStr], Field( description="action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.")] = None, **kwargs) -> ApiResponse:  # noqa: E501
         """[DEPRECATED] GenerateAccessToken: Generate a Personal Access Token for the current user and stores it in the me token  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -1092,7 +1092,7 @@ class ConfigurationSetsApi:
         >>> thread = api.generate_access_token_with_http_info(action, async_req=True)
         >>> result = thread.get()
 
-        :param action: action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old)  action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one.  action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.
+        :param action: action=regenerate = Even if an existing parameter exists, forcibly regenerate a new one (deleting the old) action=ensure = If no parameter exists, create one. If one does already exist, verify that it is still valid (call a service?), and if so, return it. If it is not still valid, then regenerate a new one. action=default = If a parameter exists, return it. If not then create one. If this parameter is not provided, this is the default behaviour.
         :type action: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
@@ -1578,7 +1578,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_system_configuration_items(self, code : Annotated[StrictStr, Field(..., description="The code that identifies a system configuration set")], key : Annotated[StrictStr, Field(..., description="The key that identifies a system configuration item")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfConfigurationItem, Awaitable[ResourceListOfConfigurationItem]]:  # noqa: E501
-        """[EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint  # noqa: E501
+        """[EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1612,7 +1612,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_system_configuration_items_with_http_info(self, code : Annotated[StrictStr, Field(..., description="The code that identifies a system configuration set")], key : Annotated[StrictStr, Field(..., description="The key that identifies a system configuration item")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """[EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set  All users have access to this endpoint  # noqa: E501
+        """[EARLY ACCESS] GetSystemConfigurationItems: Get the specific system configuration items within a system set All users have access to this endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1745,7 +1745,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_system_configuration_sets(self, code : Annotated[StrictStr, Field(..., description="The code that identifies a system configuration set")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets")] = None, async_req: Optional[bool]=None, **kwargs) -> Union[ResourceListOfConfigurationSet, Awaitable[ResourceListOfConfigurationSet]]:  # noqa: E501
-        """GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint  # noqa: E501
+        """GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
@@ -1777,7 +1777,7 @@ class ConfigurationSetsApi:
 
     @validate_arguments
     def get_system_configuration_sets_with_http_info(self, code : Annotated[StrictStr, Field(..., description="The code that identifies a system configuration set")], reveal : Annotated[Optional[StrictBool], Field(description="Whether to reveal the secrets")] = None, **kwargs) -> ApiResponse:  # noqa: E501
-        """GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed  All users have access to this endpoint  # noqa: E501
+        """GetSystemConfigurationSets: Get the specified system configuration sets, including all their associated metadata. By default secrets will not be revealed All users have access to this endpoint  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
