@@ -18,8 +18,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, conlist, constr 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 from lusid_configuration.models.link import Link
 from lusid_configuration.models.resource_id import ResourceId
 
@@ -27,9 +29,9 @@ class ConfigurationSetSummary(BaseModel):
     """
     A group of configuration items  # noqa: E501
     """
-    id: ResourceId = Field(...)
+    id: ResourceId
     type:  StrictStr = Field(...,alias="type", description="The type (personal or shared) of the configuration set") 
-    links: Optional[conlist(Link)] = None
+    links: Optional[List[Link]] = None
     __properties = ["id", "type", "links"]
 
     class Config:
@@ -96,3 +98,5 @@ class ConfigurationSetSummary(BaseModel):
             "links": [Link.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None
         })
         return _obj
+
+ConfigurationSetSummary.update_forward_refs()

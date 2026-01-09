@@ -17,18 +17,20 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_configuration.models.configuration_set import ConfigurationSet
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictStr, conlist, constr
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
+
 created_at: datetime = # Replace with your value
 created_by: StrictStr = "example_created_by"
 last_modified_at: datetime = # Replace with your value
 last_modified_by: StrictStr = "example_last_modified_by"
 description: Optional[StrictStr] = "example_description"
-items: Optional[conlist(ConfigurationItemSummary)] = # Replace with your value
-id: ResourceId = # Replace with your value
+items: Optional[List[ConfigurationItemSummary]] = # Replace with your value
+id: ResourceId
 type: StrictStr = "example_type"
-links: Optional[conlist(Link)] = None
+links: Optional[List[Link]] = None
 configuration_set_instance = ConfigurationSet(created_at=created_at, created_by=created_by, last_modified_at=last_modified_at, last_modified_by=last_modified_by, description=description, items=items, id=id, type=type, links=links)
 
 ```

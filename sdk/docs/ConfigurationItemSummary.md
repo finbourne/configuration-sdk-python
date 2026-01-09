@@ -15,8 +15,10 @@ Name | Type | Description | Notes
 
 ```python
 from lusid_configuration.models.configuration_item_summary import ConfigurationItemSummary
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import BaseModel, Field, StrictBool, conlist, constr
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 
 key: StrictStr = "example_key"
 value: StrictStr = "example_value"
@@ -26,7 +28,7 @@ is_secret:StrictBool = True
 ref: StrictStr = "example_ref"
 block_reveal: StrictBool = # Replace with your value
 block_reveal:StrictBool = True
-links: Optional[conlist(Link)] = None
+links: Optional[List[Link]] = None
 configuration_item_summary_instance = ConfigurationItemSummary(key=key, value=value, value_type=value_type, is_secret=is_secret, ref=ref, block_reveal=block_reveal, links=links)
 
 ```

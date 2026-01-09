@@ -17,9 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
+
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
 from datetime import datetime
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, StrictStr, conlist, constr 
 from lusid_configuration.models.configuration_item_summary import ConfigurationItemSummary
 from lusid_configuration.models.link import Link
 from lusid_configuration.models.resource_id import ResourceId
@@ -28,15 +30,15 @@ class ConfigurationSet(BaseModel):
     """
     The full version of the configuration set  # noqa: E501
     """
-    created_at: datetime = Field(..., alias="createdAt", description="The date referring to the creation date of the configuration set")
+    created_at: datetime = Field(description="The date referring to the creation date of the configuration set", alias="createdAt")
     created_by:  StrictStr = Field(...,alias="createdBy", description="Who created the configuration set") 
-    last_modified_at: datetime = Field(..., alias="lastModifiedAt", description="The date referring to the date when the configuration set was last modified")
+    last_modified_at: datetime = Field(description="The date referring to the date when the configuration set was last modified", alias="lastModifiedAt")
     last_modified_by:  StrictStr = Field(...,alias="lastModifiedBy", description="Who modified the configuration set most recently") 
     description:  Optional[StrictStr] = Field(None,alias="description", description="Describes the configuration set") 
-    items: Optional[conlist(ConfigurationItemSummary)] = Field(None, description="The collection of the configuration items that this set contains.")
-    id: ResourceId = Field(...)
+    items: Optional[List[ConfigurationItemSummary]] = Field(default=None, description="The collection of the configuration items that this set contains.")
+    id: ResourceId
     type:  StrictStr = Field(...,alias="type", description="The type (personal or shared) of the configuration set") 
-    links: Optional[conlist(Link)] = None
+    links: Optional[List[Link]] = None
     __properties = ["createdAt", "createdBy", "lastModifiedAt", "lastModifiedBy", "description", "items", "id", "type", "links"]
 
     class Config:
@@ -126,3 +128,5 @@ class ConfigurationSet(BaseModel):
             "links": [Link.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None
         })
         return _obj
+
+ConfigurationSet.update_forward_refs()

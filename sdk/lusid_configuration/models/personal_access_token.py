@@ -18,8 +18,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, List, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, conlist, constr 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 from lusid_configuration.models.link import Link
 
 class PersonalAccessToken(BaseModel):
@@ -30,7 +32,7 @@ class PersonalAccessToken(BaseModel):
     type:  StrictStr = Field(...,alias="type", description="The type of the Personal Access Token.") 
     description:  StrictStr = Field(...,alias="description", description="The description of the Personal Access Token.") 
     ref:  StrictStr = Field(...,alias="ref", description="The reference to the Personal Access Token") 
-    links: Optional[conlist(Link)] = None
+    links: Optional[List[Link]] = None
     __properties = ["value", "type", "description", "ref", "links"]
 
     class Config:
@@ -100,3 +102,5 @@ class PersonalAccessToken(BaseModel):
             "links": [Link.from_dict(_item) for _item in obj.get("links")] if obj.get("links") is not None else None
         })
         return _obj
+
+PersonalAccessToken.update_forward_refs()

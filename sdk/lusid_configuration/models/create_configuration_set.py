@@ -18,15 +18,17 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, Dict, Optional
-from pydantic.v1 import StrictStr, Field, BaseModel, Field, constr 
+from typing import List, Dict, Optional, Any, Union, TYPE_CHECKING
+from typing_extensions import Annotated
+from pydantic.v1 import BaseModel, StrictStr, StrictInt, StrictBool, StrictFloat, StrictBytes, Field, validator, ValidationError, conlist, constr
+from datetime import datetime
 from lusid_configuration.models.resource_id import ResourceId
 
 class CreateConfigurationSet(BaseModel):
     """
     The information required to create a new configuration set  # noqa: E501
     """
-    id: ResourceId = Field(...)
+    id: ResourceId
     type:  StrictStr = Field(...,alias="type", description="The type (personal or shared) of the new configuration set") 
     description:  Optional[StrictStr] = Field(None,alias="description", description="The description of the new configuration set") 
     __properties = ["id", "type", "description"]
@@ -88,3 +90,5 @@ class CreateConfigurationSet(BaseModel):
             "description": obj.get("description")
         })
         return _obj
+
+CreateConfigurationSet.update_forward_refs()
