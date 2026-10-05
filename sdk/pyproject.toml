@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lusid-configuration-sdk"
-version = "2.3.4"
+version = "2.3.5"
 description = "FINBOURNE ConfigurationService API"
 authors = ["FINBOURNE Technology <info@finbourne.com>"]
 license = "MIT"
@@ -15,7 +15,7 @@ include = ["lusid_configuration/**/*"]
 [tool.poetry.dependencies]
 python = "^3.11"
 
-urllib3 = "^2.7.0"
+urllib3 = "^2.8.0"
 python-dateutil = "^2.8.2"
 requests = "^2"
 aiohttp = "^3.14.2"

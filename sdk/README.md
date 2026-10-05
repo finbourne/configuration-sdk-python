@@ -6,6 +6,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/configuration*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ApplicationMetadataApi* | [**list_access_controlled_resources**](docs/ApplicationMetadataApi.md#list_access_controlled_resources) | **GET** /api/metadata/access/resources | [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+*ApplicationMetadataApi* | [**list_api_endpoints**](docs/ApplicationMetadataApi.md#list_api_endpoints) | **GET** /api/metadata/endpoints | ListApiEndpoints: Get the API endpoints available
 *ConfigurationSetsApi* | [**add_configuration_to_set**](docs/ConfigurationSetsApi.md#add_configuration_to_set) | **POST** /api/sets/{type}/{scope}/{code}/items | [EARLY ACCESS] AddConfigurationToSet: Add a configuration item to an existing set
 *ConfigurationSetsApi* | [**check_access_token_exists**](docs/ConfigurationSetsApi.md#check_access_token_exists) | **HEAD** /api/sets/personal/me | [DEPRECATED] CheckAccessTokenExists: Check the Personal Access Token exists for the current user
 *ConfigurationSetsApi* | [**create_configuration_set**](docs/ConfigurationSetsApi.md#create_configuration_set) | **POST** /api/sets | [EARLY ACCESS] CreateConfigurationSet: Create a configuration set
@@ -28,6 +29,7 @@ Class | Method | HTTP request | Description
  - [AccessControlledAction](docs/AccessControlledAction.md)
  - [AccessControlledResource](docs/AccessControlledResource.md)
  - [ActionId](docs/ActionId.md)
+ - [ApiEndpoint](docs/ApiEndpoint.md)
  - [ConfigurationItem](docs/ConfigurationItem.md)
  - [ConfigurationItemSummary](docs/ConfigurationItemSummary.md)
  - [ConfigurationSet](docs/ConfigurationSet.md)
@@ -45,6 +47,7 @@ Class | Method | HTTP request | Description
  - [ResourceListOfConfigurationItem](docs/ResourceListOfConfigurationItem.md)
  - [ResourceListOfConfigurationSet](docs/ResourceListOfConfigurationSet.md)
  - [ResourceListOfConfigurationSetSummary](docs/ResourceListOfConfigurationSetSummary.md)
+ - [ServiceApiEndpoints](docs/ServiceApiEndpoints.md)
  - [UpdateConfigurationItem](docs/UpdateConfigurationItem.md)
  - [UpdateConfigurationSet](docs/UpdateConfigurationSet.md)
 
